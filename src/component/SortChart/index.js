@@ -1,24 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
-import Bar from '../Bar';
+import Bar, { category } from '../Bar';
 
-const SortChart = ({ numbers, comparing, sorted }) => {
+const SortChart = ({ numbers, state }) => {
   return (
     <div className="SortChart">
       {numbers.map((num, i) => {
         let barW = 100 / numbers.length;
         let barH = (num * 100) / Math.max(...numbers);
-        let barColor;
-        if (sorted) {
-          barColor = 'green';
-        } else if (comparing.includes(i)) {
-          barColor = 'red';
-        } else {
-          barColor = 'lightseagreen';
+
+        let barCategory = category.DEFAULT;
+        if (state) {
+          if (state.sorted) barCategory = category.SORTED;
+          if (state.comparing.includes(i)) barCategory = category.COMPARED;
         }
+
         return (
-          <Bar key={i} value={num} width={barW} height={barH} color={barColor}></Bar>
+          <Bar
+            key={i}
+            value={num}
+            width={barW}
+            height={barH}
+            category={barCategory}
+          ></Bar>
         );
       })}
     </div>

@@ -18,3 +18,18 @@
   font-weight: 400;
   color: white;
 }
+
+/* MODIFIERS */
+
+.Bar_default {
+  background-color: lightseagreen;
+}
+
+.Bar_sorted {
+  background-color: green;
+}
+
+.Bar_compared {
+  background-color: firebrick;
+  padding: 10px;
+}

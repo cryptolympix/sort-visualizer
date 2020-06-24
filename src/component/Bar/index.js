@@ -2,11 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-const Bar = ({ value, width, height, color }) => {
-  let barStyle = { width: `${width}%`, height: `${height}%`, backgroundColor: color };
+export const category = {
+  DEFAULT: 0,
+  UNSORTED: 1,
+  SORTED: 2,
+  COMPARED: 3,
+};
+
+const classes = {
+  ROOT: 'Bar',
+  VALUE: 'Bar__Value',
+  DEFAULT: 'Bar_default',
+  SORTED: 'Bar_sorted',
+  COMPARED: 'Bar_compared',
+};
+
+const Bar = ({ value, width, height, category: barCategory }) => {
+  let classNames = classes.ROOT;
+  switch (barCategory) {
+    case category.SORTED:
+      classNames += ` ${classes.SORTED}`;
+      break;
+    case category.COMPARED:
+      classNames += ` ${classes.COMPARED}`;
+      break;
+    case classes.DEFAULT:
+    default:
+      classNames += ` ${classes.DEFAULT}`;
+  }
+
+  let barStyle = { width: `${width}%`, height: `${height}%` };
   return (
-    <div className="Bar" style={barStyle}>
-      <span className="Bar__Value">{value}</span>
+    <div className={classNames} style={barStyle}>
+      <span className={classes.VALUE}>{value}</span>
     </div>
   );
 };

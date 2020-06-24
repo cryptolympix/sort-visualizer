@@ -7,10 +7,11 @@ class App extends Component {
   state = {
     array: [],
     arraySize: 20,
-    comparing: [],
-    inProgress: false,
-    sorted: false,
+    trace: [],
+    traceStep: -1,
     timeoutIds: [],
+    inProgress: false,
+    speed: 150,
   };
 
   componentDidMount() {
@@ -28,39 +29,64 @@ class App extends Component {
   };
 
   reset = () => {
+    this.clearTimeouts();
     this.setState({
       array: this.generateRandomArray(),
-      sorted: false,
+      trace: [],
+      traceStep: -1,
       inProgress: false,
-      comparing: [],
       timeoutIds: [],
     });
   };
 
-  start = (sortType) => {
-    if (this.state.inProgress) {
-      return;
-    }
+  start = async () => {
+    // Cannot start if the array is sorted
+    if (this.state.trace.length > 0) return;
 
-    switch (sortType) {
-      default:
-        this.setState({ inProgress: true });
-        this.insertionSort(this.state.array);
-        break;
-    }
+    let timeoutIds = [];
+
+    this.setState({ inProgress: true });
+    await this.sortArray(this.state.array);
+
+    // Sort the algorithm
+    this.state.trace.forEach((item, i) => {
+      let timeoutId = setTimeout(() => {
+        this.setState({
+          array: item.array,
+          traceStep: this.state.traceStep + 1,
+        });
+      }, i * this.state.speed);
+      timeoutIds.push(timeoutId);
+    });
+
+    // Algorithm is sorted
+    let timeoutId = setTimeout(() => {
+      this.setState({ inProgress: false });
+    }, this.state.speed * this.state.trace.length);
+    timeoutIds.push(timeoutId);
+
+    this.setState({ timeoutIds });
   };
 
-  stop = () => {
+  pause = () => {
+    this.clearTimeouts();
+  };
+
+  clearTimeouts = () => {
     this.state.timeoutIds.forEach((timeoutId) => {
       clearInterval(timeoutId);
     });
     this.setState({ inProgress: false, timeoutIds: [] });
   };
 
+  sortArray = () => {
+    let array = [...this.state.array]; // copy
+    this.insertionSort(array);
+  };
+
   insertionSort = (array) => {
     let i = 1;
-    let timer = 150;
-    let timeoutIds = [];
+    let trace = [];
 
     const swap = (array, i, j) => {
       let temp = array[i];
@@ -68,43 +94,41 @@ class App extends Component {
       array[j] = temp;
     };
 
-    // Sort the array
+    const addToTrace = (array, comparing, sorted) => {
+      trace.push({
+        array,
+        comparing,
+        sorted,
+      });
+    };
+
+    // Core algorithm
     while (i < array.length) {
       let j = i;
-      let timeoutId = setTimeout(
-        (j) => {
-          while (j > 0 && array[j - 1] > array[j]) {
-            swap(array, j, j - 1);
-            this.setState({ array, comparing: [j, j - 1] });
-            j--;
-          }
-        },
-        i * timer,
-        j
-      );
+      while (j > 0 && array[j - 1] > array[j]) {
+        swap(array, j, j - 1);
+        addToTrace([...array], [j, j - 1], false);
+        j--;
+      }
       i++;
-      timeoutIds.push(timeoutId);
     }
+    addToTrace([...array], [], true);
 
-    // The array is sorted
-    let timeoutId = setTimeout(() => {
-      this.setState({ sorted: true });
-    }, i * timer);
-    timeoutIds.push(timeoutId);
-
-    this.setState({ timeoutIds });
+    this.setState({ trace });
   };
 
   render() {
+    let visualState = this.state.trace[this.state.traceStep];
     return (
       <div className="App">
         <div className="App__Body">
-          <SortChart
-            numbers={this.state.array}
-            comparing={this.state.comparing}
-            sorted={this.state.sorted}
+          <SortChart numbers={this.state.array} state={visualState} />
+          <Controls
+            onReset={this.reset}
+            onStart={this.start}
+            onPause={this.pause}
+            inProgress={this.state.inProgress}
           />
-          <Controls reset={this.reset} start={this.start} stop={this.stop} />
         </div>
       </div>
     );
