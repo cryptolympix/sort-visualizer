@@ -1,0 +1,20 @@
+/* BLOCK */
+
+.Bar {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 2px;
+}
+
+/* ELEMENTS */
+
+.Bar__Value {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}

@@ -1,0 +1,42 @@
+/* BLOCK */
+
+.Controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 300px;
+  height: 80px;
+  margin: 20px;
+
+  border: solid 1px lightgray;
+  border-radius: 20px;
+  background-color: lightgray;
+}
+
+/* ELEMENTS */
+
+.Controls__Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 70px;
+  height: 30px;
+  padding: 5px;
+  margin: 0px 10px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  font-size: 1em;
+  font-weight: 400;
+  color: white;
+}
+
+.Controls__Button:hover,
+.Controls__Button:active {
+  background-color: rgba(0, 0, 0, 0.3);
+}
