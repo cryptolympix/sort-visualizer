@@ -1,0 +1,77 @@
+/* BLOCKS */
+
+.List {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ELEMENTS */
+
+.List__Button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+
+  border: solid 1px black;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+}
+
+.List__Label {
+  font-size: 1em;
+  font-weight: 400;
+  color: white;
+}
+
+.List__Content {
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  top: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  background-color: var(--secondary-color);
+  box-sizing: border-box;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.17);
+}
+
+.List__Item {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.List__Item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* MODIFIERS */
+
+.List__Icon_up {
+  transform: rotate(180deg);
+}
+
+.List__Content_visible {
+  display: flex;
+}
+
+.List__Content_hidden {
+  display: none;
+}

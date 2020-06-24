@@ -8,7 +8,8 @@
 
   width: 600px;
   height: 400px;
-
   padding: 20px;
-  background: orange;
+  border-radius: 20px;
+  border: solid 1px black;
+  background-color: var(--chart-bg-color);
 }

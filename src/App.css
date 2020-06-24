@@ -1,5 +1,4 @@
-.App {
-}
+@import url('./util/colors.css');
 
 .App__Body {
   position: absolute;
@@ -16,5 +15,7 @@
   height: 600px;
   padding: 30px;
 
-  background-color: lightsteelblue;
+  border-radius: 20px;
+  border: solid 1px black;
+  background-color: var(--primary-color);
 }

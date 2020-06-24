@@ -6,18 +6,23 @@
   justify-content: center;
   align-items: center;
 
-  width: 300px;
-  height: 80px;
+  width: 640px;
+  height: 100px;
   margin: 20px;
 
-  border: solid 1px lightgray;
+  border: solid 1px black;
   border-radius: 20px;
-  background-color: lightgray;
+  background-color: var(--controls-bg-color);
+}
+
+.Controls > * {
+  margin: 0px 10px;
 }
 
 /* ELEMENTS */
 
 .Controls__Button {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,18 +30,17 @@
   width: 70px;
   height: 30px;
   padding: 5px;
-  margin: 0px 10px;
   outline: none;
-  border: none;
+
+  border: solid 1px black;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--secondary-color);
 
   font-size: 1em;
   font-weight: 400;
   color: white;
 }
 
-.Controls__Button:hover,
 .Controls__Button:active {
-  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
 }

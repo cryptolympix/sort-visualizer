@@ -34,7 +34,7 @@ const Bar = ({ value, width, height, category: barCategory }) => {
   let barStyle = { width: `${width}%`, height: `${height}%` };
   return (
     <div className={classNames} style={barStyle}>
-      <span className={classes.VALUE}>{value}</span>
+      {width >= 10 && <span className={classes.VALUE}>{value}</span>}
     </div>
   );
 };

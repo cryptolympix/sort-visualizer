@@ -1,16 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
+import List from '../List';
 
-const Controls = ({ onReset, onStart, onPause, inProgress }) => {
+const Controls = ({
+  inProgress,
+  onReset,
+  onStart,
+  onPause,
+  algorithms,
+  onAlgorithmChange,
+  arraySize,
+  onArraySizeChange,
+}) => {
   return (
     <div className="Controls">
       <button className="Controls__Button" onClick={onReset}>
-        reset
+        Reset
       </button>
       <button className="Controls__Button" onClick={inProgress ? onPause : onStart}>
-        {inProgress ? 'pause' : 'start'}
+        {inProgress ? 'Pause' : 'Start'}
       </button>
+      <List
+        defaultItem={arraySize}
+        items={[5, 10, 20, 50]}
+        onSelect={onArraySizeChange}
+      />
+      <List placeholder="Sort algo" items={algorithms} onSelect={onAlgorithmChange} />
     </div>
   );
 };
