@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import SortChart from './component/SortChart';
-import Controls from './component/Controls';
+import SortChart from './component/molecules/SortChart';
+import Controls from './component/molecules/Controls';
+import ProgressBar from './component/molecules/ProgressBar';
 
 import { ALGORITHMS } from './algorithms';
 
@@ -111,9 +112,9 @@ class App extends Component {
     });
   };
 
-  onAlgorithmChange = (algorithm) => {
+  onAlgorithmChange = (label) => {
     ALGORITHMS.forEach((algo) => {
-      if (algo.label === algorithm) {
+      if (algo.label === label) {
         this.setState({ algorithm: algo.function });
         return;
       }
@@ -145,6 +146,10 @@ class App extends Component {
       <div className="App">
         <div className="App__Body">
           <SortChart numbers={this.state.array} state={visualState} />
+          <ProgressBar
+            value={this.state.traceStep + 1}
+            maxValue={this.state.trace.length}
+          />
           <Controls
             onReset={this.reset}
             onStart={this.state.traceStep > -1 ? this.continue : this.start}

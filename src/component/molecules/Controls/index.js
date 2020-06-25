@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { MdRefresh, MdPlayCircleOutline, MdPauseCircleOutline } from 'react-icons/md';
 import './style.css';
-import List from '../List';
+import List from '../../atoms/List';
 
 const Controls = ({
   inProgress,
@@ -16,17 +17,21 @@ const Controls = ({
   return (
     <div className="Controls">
       <button className="Controls__Button" onClick={onReset}>
-        Reset
+        <MdRefresh />
       </button>
       <button className="Controls__Button" onClick={inProgress ? onPause : onStart}>
-        {inProgress ? 'Pause' : 'Start'}
+        {inProgress ? <MdPauseCircleOutline /> : <MdPlayCircleOutline />}
       </button>
       <List
         defaultItem={arraySize}
         items={[5, 10, 20, 50]}
         onSelect={onArraySizeChange}
       />
-      <List placeholder="Sort algo" items={algorithms} onSelect={onAlgorithmChange} />
+      <List
+        placeholder="Sort algorithm"
+        items={algorithms}
+        onSelect={onAlgorithmChange}
+      />
     </div>
   );
 };
