@@ -3,8 +3,9 @@ import './App.css';
 
 import AppBar from './component/organisms/AppBar';
 import SortChart from './component/molecules/SortChart';
-import Controls from './component/molecules/Controls';
-import ProgressBar from './component/molecules/ProgressBar';
+import Controls from './component/organisms/Controls';
+import ProgressBar from './component/atoms/ProgressBar';
+import SortInfo from './component/organisms/SortInfo';
 
 import { ALGORITHMS } from './algorithms';
 
@@ -201,6 +202,7 @@ class App extends Component {
             onSkipPrevious={this.skipPrevious}
             onSkipNext={this.skipNext}
           />
+          <SortInfo />
         </main>
       </div>
     );

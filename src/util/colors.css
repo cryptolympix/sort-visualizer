@@ -3,7 +3,9 @@
   --secondary-color: lightseagreen;
 
   --background-color: white;
-  --text-color: black;
+  --text-color-ligth: white;
+  --text-color-dark: black;
+  --button-color: black;
 
   --chart-bg-color: #eee;
   --controls-bg-color: #004c8c;

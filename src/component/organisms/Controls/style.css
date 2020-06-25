@@ -23,7 +23,7 @@
 
   font-size: 1em;
   font-weight: 400;
-  color: black;
+  color: var(--button-color);
 }
 
 .Controls__Button-side {
@@ -32,7 +32,7 @@
 
   font-size: 1em;
   font-weight: 400;
-  color: black;
+  color: var(--button-color);
 }
 
 .Controls__Button:active {

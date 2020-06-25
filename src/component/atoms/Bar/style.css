@@ -15,10 +15,10 @@
 
 .Bar__Value {
   font-family: 'Nunito', sans-serif;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   user-select: none;
-  color: white;
+  color: var(--text-color-ligth);
 }
 
 /* MODIFIERS */
