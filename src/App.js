@@ -96,6 +96,41 @@ class App extends Component {
     this.setState({ inProgress: false, timeoutIds: [] });
   };
 
+  skipPrevious = () => {
+    const { traceStep, trace } = this.state;
+    if (traceStep >= 0) {
+      let arrayStep = traceStep > 0 ? traceStep - 1 : traceStep;
+      this.setState({
+        array: trace[arrayStep].array,
+        traceStep: traceStep - 1,
+      });
+    }
+  };
+
+  skipNext = () => {
+    const { trace, traceStep } = this.state;
+    if (traceStep === -1) {
+      this.sortArray(this.state.array)
+        .then(() => {
+          const trace = this.state.trace;
+          this.setState({
+            array: trace[traceStep + 1].array,
+            traceStep: traceStep + 1,
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+
+    if (traceStep < trace.length - 1) {
+      this.setState({
+        array: trace[traceStep + 1].array,
+        traceStep: traceStep + 1,
+      });
+    }
+  };
+
   sortArray = () => {
     return new Promise((resolve, reject) => {
       let array = [...this.state.array]; // copy
@@ -126,18 +161,15 @@ class App extends Component {
   onArraySizeChange = (size) => {
     size = Number(size);
     const array = this.generateRandomArray(size);
-    this.setState({ array, arraySize: array.length });
-
-    const isSorted = this.state.traceStep + 1 === this.state.trace.length;
-    if (this.state.inProgress || isSorted) {
-      this.clearTimeouts();
-      this.setState({
-        trace: [],
-        traceStep: -1,
-        inProgress: false,
-        timeoutIds: [],
-      });
-    }
+    this.clearTimeouts();
+    this.setState({
+      array,
+      arraySize: array.length,
+      trace: [],
+      traceStep: -1,
+      inProgress: false,
+      timeoutIds: [],
+    });
   };
 
   render() {
@@ -166,8 +198,8 @@ class App extends Component {
             onStart={this.state.traceStep > -1 ? this.continue : this.start}
             onPause={this.pause}
             inProgress={this.state.inProgress}
-            speed={this.state.speed}
-            onAdjustSpeed={this.onAdjustSpeed}
+            onSkipPrevious={this.skipPrevious}
+            onSkipNext={this.skipNext}
           />
         </main>
       </div>

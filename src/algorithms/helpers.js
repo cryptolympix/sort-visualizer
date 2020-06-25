@@ -4,10 +4,11 @@ export const swap = (array, i, j) => {
   array[j] = temp;
 };
 
-export const addToTrace = (trace, array, comparing, sorted) => {
+export const addToTrace = (trace, array, comparing, swapping, sorted) => {
   trace.push({
     array,
     comparing,
+    swapping,
     sorted,
   });
 };

@@ -14,16 +14,16 @@ const AppBar = ({
     <div className="AppBar">
       <h1 className="AppBar__Title">Sort Visualizer</h1>
       <div className="AppBar__Controls">
-        <div className="AppBar__Controls__Menu">
-          <span className="AppBar__Controls__Label">Size</span>
+        <div className="AppBar__Menu">
+          <span className="AppBar__Label">Size</span>
           <List
             defaultItem={arraySize}
             items={[5, 10, 20, 50]}
             onSelect={onArraySizeChange}
           />
         </div>
-        <div className="AppBar__Controls__Menu">
-          <span className="AppBar__Controls__Label">Algorithm</span>
+        <div className="AppBar__Menu">
+          <span className="AppBar__Label">Algorithm</span>
           <List
             defaultItem={algorithm}
             items={algorithmLabels}

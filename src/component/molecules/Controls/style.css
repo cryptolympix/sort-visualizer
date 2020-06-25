@@ -11,15 +11,24 @@
   margin: 20px;
 }
 
+/* ELEMENTS */
+
 .Controls > * {
   margin: 0px 10px;
 }
 
-/* ELEMENTS */
-
-.Controls__Button {
+.Controls__Button-center {
   width: 50px;
   height: 50px;
+
+  font-size: 1em;
+  font-weight: 400;
+  color: black;
+}
+
+.Controls__Button-side {
+  width: 30px;
+  height: 30px;
 
   font-size: 1em;
   font-weight: 400;

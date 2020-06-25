@@ -7,6 +7,7 @@ export const category = {
   UNSORTED: 1,
   SORTED: 2,
   COMPARED: 3,
+  SWAPPED: 4,
 };
 
 const classes = {
@@ -15,6 +16,7 @@ const classes = {
   DEFAULT: 'Bar_default',
   SORTED: 'Bar_sorted',
   COMPARED: 'Bar_compared',
+  SWAPPED: 'Bar_swapped',
 };
 
 const Bar = ({ value, width, height, category: barCategory }) => {
@@ -25,6 +27,9 @@ const Bar = ({ value, width, height, category: barCategory }) => {
       break;
     case category.COMPARED:
       classNames += ` ${classes.COMPARED}`;
+      break;
+    case category.SWAPPED:
+      classNames += ` ${classes.SWAPPED}`;
       break;
     case classes.DEFAULT:
     default:
