@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { IconContext } from 'react-icons';
+import { MdExpandMore } from 'react-icons/md';
 import './style.css';
 
 const ListItems = ({ items, onSelect, open }) => {
@@ -36,17 +38,16 @@ class List extends Component {
     const { selected, open } = this.state;
     const { items, placeholder, defaultItem } = this.props;
 
-    let labelStyle =
-      defaultItem || selected
-        ? { fontSize: '1em', color: 'white' }
-        : { fontSize: '0.8em', fontStyle: 'italic', color: 'green' };
+    let iconClasses = 'List__Icon';
+    if (open) iconClasses += ' List__Icon_up';
 
     return (
       <div className="List">
         <div className="List__Button" onClick={this.toggleVisible}>
-          <span style={labelStyle} className="List__Label">
-            {selected ? selected : placeholder || defaultItem}
-          </span>
+          <span className="List__Value">{selected || defaultItem || placeholder}</span>
+          <IconContext.Provider value={{ className: iconClasses }}>
+            <MdExpandMore />
+          </IconContext.Provider>
         </div>
         <ListItems items={items} onSelect={this.handleSelect} open={open} />
       </div>
@@ -56,8 +57,8 @@ class List extends Component {
 
 List.propTypes = {
   placeholder: PropTypes.string,
-  defaultItem: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
-  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  defaultItem: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  items: PropTypes.array.isRequired,
   onSelect: PropTypes.func,
 };
 

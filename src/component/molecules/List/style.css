@@ -1,12 +1,18 @@
 /* BLOCKS */
 
 .List {
-  flex: 1;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ELEMENTS */
@@ -21,30 +27,39 @@
   cursor: pointer;
   text-align: center;
   user-select: none;
-
-  border: solid 1px black;
-  border-radius: 10px;
-  background-color: var(--secondary-color);
 }
 
-.List__Label {
+.List__Value {
+  font-family: 'Roboto', sans-serif;
   font-size: 1em;
   font-weight: 400;
-  color: white;
+  color: var(--text-color);
+  filter: invert(50%);
+}
+
+.List__Icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  color: var(--text-color);
+  filter: invert(50%);
 }
 
 .List__Content {
   position: absolute;
+  z-index: 10;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  top: 100%;
+  top: 120%;
   margin: 0;
   padding: 0;
   list-style: none;
 
-  background-color: var(--secondary-color);
+  background-color: white;
   box-sizing: border-box;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.17);
 }
@@ -52,10 +67,14 @@
 .List__Item {
   box-sizing: border-box;
   width: 100%;
-  text-align: center;
   padding: 5px 10px;
   cursor: pointer;
-  color: white;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  text-align: center;
+  color: var(--text-color);
 }
 
 .List__Item:hover {

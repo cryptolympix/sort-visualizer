@@ -6,13 +6,9 @@
   justify-content: center;
   align-items: center;
 
-  width: 640px;
-  height: 100px;
+  width: 100%;
+  height: auto;
   margin: 20px;
-
-  border: solid 1px black;
-  border-radius: 20px;
-  background-color: var(--controls-bg-color);
 }
 
 .Controls > * {
@@ -22,23 +18,12 @@
 /* ELEMENTS */
 
 .Controls__Button {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 70px;
-  height: 30px;
-  padding: 5px;
-  outline: none;
-
-  border: solid 1px black;
-  border-radius: 10px;
-  background-color: var(--secondary-color);
+  width: 50px;
+  height: 50px;
 
   font-size: 1em;
   font-weight: 400;
-  color: white;
+  color: black;
 }
 
 .Controls__Button:active {

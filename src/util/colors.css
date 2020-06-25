@@ -2,7 +2,10 @@
   --primary-color: #056bb3;
   --secondary-color: lightseagreen;
 
-  --chart-bg-color: #74bbe4;
+  --background-color: white;
+  --text-color: black;
+
+  --chart-bg-color: #eee;
   --controls-bg-color: #004c8c;
 
   --bar-default-color: lightseagreen;

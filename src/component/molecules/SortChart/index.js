@@ -17,13 +17,7 @@ const SortChart = ({ numbers, state }) => {
         }
 
         return (
-          <Bar
-            key={i}
-            value={num}
-            width={barW}
-            height={barH}
-            category={barCategory}
-          ></Bar>
+          <Bar key={i} value={num} width={barW} height={barH} category={barCategory} />
         );
       })}
     </div>

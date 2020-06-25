@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+
+import AppBar from './component/organisms/AppBar';
 import SortChart from './component/molecules/SortChart';
 import Controls from './component/molecules/Controls';
 import ProgressBar from './component/molecules/ProgressBar';
@@ -10,7 +12,7 @@ class App extends Component {
   state = {
     array: [],
     arraySize: 10,
-    algorithm: null,
+    algorithm: ALGORITHMS[0],
     trace: [],
     traceStep: -1,
     timeoutIds: [],
@@ -97,7 +99,7 @@ class App extends Component {
   sortArray = () => {
     return new Promise((resolve, reject) => {
       let array = [...this.state.array]; // copy
-      const sort = this.state.algorithm;
+      const sort = this.state.algorithm.function;
       if (sort) {
         const trace = sort(array);
         if (trace) {
@@ -115,7 +117,7 @@ class App extends Component {
   onAlgorithmChange = (label) => {
     ALGORITHMS.forEach((algo) => {
       if (algo.label === label) {
-        this.setState({ algorithm: algo.function });
+        this.setState({ algorithm: algo });
         return;
       }
     });
@@ -144,7 +146,16 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="App__Body">
+        <header className="App__Header">
+          <AppBar
+            algorithm={this.state.algorithm.label}
+            algorithmLabels={algorithmLabels}
+            onAlgorithmChange={this.onAlgorithmChange}
+            arraySize={this.state.arraySize}
+            onArraySizeChange={this.onArraySizeChange}
+          />
+        </header>
+        <main className="App__Body">
           <SortChart numbers={this.state.array} state={visualState} />
           <ProgressBar
             value={this.state.traceStep + 1}
@@ -155,14 +166,10 @@ class App extends Component {
             onStart={this.state.traceStep > -1 ? this.continue : this.start}
             onPause={this.pause}
             inProgress={this.state.inProgress}
-            algorithms={algorithmLabels}
-            onAlgorithmChange={this.onAlgorithmChange}
-            arraySize={this.state.arraySize}
-            onArraySizeChange={this.onArraySizeChange}
             speed={this.state.speed}
             onAdjustSpeed={this.onAdjustSpeed}
           />
-        </div>
+        </main>
       </div>
     );
   }
