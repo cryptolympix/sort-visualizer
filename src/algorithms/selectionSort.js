@@ -12,8 +12,8 @@ export default (array) => {
       }
     }
     if (min !== i) {
-      addToTrace(trace, [...array], [], [i, min], false);
       swap(array, i, min);
+      addToTrace(trace, [...array], [], [i, min], false);
     }
   }
 

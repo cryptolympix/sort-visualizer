@@ -11,6 +11,12 @@
   border: solid 1px grey;
 }
 
+@media screen and (max-width: 600px) {
+  .Bar {
+    margin: 0px 1px;
+  }
+}
+
 /* ELEMENTS */
 
 .Bar__Value {
