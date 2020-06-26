@@ -1,17 +1,36 @@
 @import url('./util/colors.css');
 
 .App {
+  --app-bar-height: 70px;
+
   width: 100vw;
   height: 100vh;
+  overflow: scroll;
   background-color: var(--background-color);
 }
 
+.App__Header {
+  height: var(--app-bar-height);
+}
+
 .App__Body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 30px;
+  width: 100%;
+  min-height: calc(90vh - var(--app-bar-height));
+}
+
+.App__Footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  margin: 30px;
-  background-color: var(--background-color);
+  width: 100%;
+  height: 10vh;
 }

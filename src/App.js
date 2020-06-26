@@ -6,6 +6,7 @@ import SortChart from './component/molecules/SortChart';
 import Controls from './component/organisms/Controls';
 import ProgressBar from './component/atoms/ProgressBar';
 import SortInfo from './component/organisms/SortInfo';
+import Footer from './component/organisms/Footer';
 
 import { ALGORITHMS } from './algorithms';
 
@@ -204,6 +205,9 @@ class App extends Component {
           />
           <SortInfo />
         </main>
+        <footer className="App__Footer">
+          <Footer />
+        </footer>
       </div>
     );
   }

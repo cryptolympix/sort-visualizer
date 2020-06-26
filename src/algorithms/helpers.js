@@ -12,3 +12,7 @@ export const addToTrace = (trace, array, comparing, swapping, sorted) => {
     sorted,
   });
 };
+
+export const createRange = (start, end) => {
+  return [...Array(end - start).keys()].map((elem) => elem + start);
+};
