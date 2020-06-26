@@ -54,8 +54,8 @@ class App extends Component {
 
   start = async () => {
     this.sortArray(this.state.array)
-      .then(() => {
-        this.visualize(this.state.trace);
+      .then((trace) => {
+        this.visualize(trace);
       })
       .catch((err) => {
         console.error(err);
@@ -113,8 +113,7 @@ class App extends Component {
     const { trace, traceStep } = this.state;
     if (traceStep === -1) {
       this.sortArray(this.state.array)
-        .then(() => {
-          const trace = this.state.trace;
+        .then((trace) => {
           this.setState({
             array: trace[traceStep + 1].array,
             traceStep: traceStep + 1,
@@ -141,7 +140,7 @@ class App extends Component {
         const trace = sort(array);
         if (trace) {
           this.setState({ trace });
-          resolve();
+          resolve(trace);
         } else {
           reject('Something went wrong when sorting the array');
         }
