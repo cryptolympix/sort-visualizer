@@ -11,8 +11,8 @@
 
   --bar-default-color: lightseagreen;
   --bar-sorted-color: green;
-  --bar-compared-color: firebrick;
-  --bar-swapped-color: orange;
+  --bar-group-a-color: firebrick;
+  --bar-group-b-color: orange;
 
   --progress-bar-bg-color: grey;
   --progress-bar-progress: rgba(0, 0, 0, 0.25);

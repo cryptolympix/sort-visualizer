@@ -13,8 +13,8 @@ const SortChart = ({ numbers, state }) => {
         let barCategory = category.DEFAULT;
         if (state) {
           if (state.sorted.includes(i)) barCategory = category.SORTED;
-          if (state.comparing.includes(i)) barCategory = category.COMPARED;
-          if (state.swapping.includes(i)) barCategory = category.SWAPPED;
+          if (state.groupA.includes(i)) barCategory = category.GROUP_A;
+          if (state.groupB.includes(i)) barCategory = category.GROUP_B;
         }
 
         return (

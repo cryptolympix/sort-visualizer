@@ -37,12 +37,12 @@
   background-color: var(--bar-sorted-color);
 }
 
-.Bar_compared {
-  background-color: var(--bar-compared-color);
+.Bar_groupA {
+  background-color: var(--bar-group-a-color);
   margin: 0px 0.7%;
 }
 
-.Bar_swapped {
-  background-color: var(--bar-swapped-color);
+.Bar_groupB {
+  background-color: var(--bar-group-b-color);
   margin: 0px 0.7%;
 }

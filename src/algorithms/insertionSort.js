@@ -7,15 +7,20 @@ export default (array) => {
   // Core algorithm
   while (i < array.length) {
     let j = i;
-    addToTrace(trace, [...array], [j, j - 1], [], []);
+    addToTrace(trace, array, [j, j - 1], [], []);
     while (j > 0 && array[j - 1] > array[j]) {
       swap(array, j, j - 1);
-      addToTrace(trace, [...array], [], [j, j - 1], []);
+      addToTrace(trace, array, [], [j, j - 1], []);
       j--;
     }
     i++;
   }
 
-  addToTrace(trace, [...array], [], [], createRange(0, array.length));
+  addToTrace(trace, array, [], [], createRange(0, array.length));
   return trace;
+};
+
+export const keys = {
+  groupA: 'Comparing',
+  groupB: 'Swapping',
 };

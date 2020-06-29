@@ -10,13 +10,13 @@ const Legend = ({ label, color }) => {
   );
 };
 
-const SortInfo = () => {
+const SortInfo = ({ keys }) => {
   return (
     <div className="SortInfo">
       <Legend label="Unsorted" color="var(--bar-default-color)" />
       <Legend label="Sorted" color="var(--bar-sorted-color)" />
-      <Legend label="Comparing" color="var(--bar-compared-color)" />
-      <Legend label="Swapping" color="var(--bar-swapped-color)" />
+      {keys.groupA && <Legend label={keys.groupA} color="var(--bar-group-a-color)" />}
+      {keys.groupB && <Legend label={keys.groupB} color="var(--bar-group-b-color)" />}
     </div>
   );
 };

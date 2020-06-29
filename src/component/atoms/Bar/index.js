@@ -4,10 +4,9 @@ import './style.css';
 
 export const category = {
   DEFAULT: 0,
-  UNSORTED: 1,
-  SORTED: 2,
-  COMPARED: 3,
-  SWAPPED: 4,
+  SORTED: 1,
+  GROUP_A: 2,
+  GROUP_B: 3,
 };
 
 const classes = {
@@ -15,8 +14,8 @@ const classes = {
   VALUE: 'Bar__Value',
   DEFAULT: 'Bar_default',
   SORTED: 'Bar_sorted',
-  COMPARED: 'Bar_compared',
-  SWAPPED: 'Bar_swapped',
+  GROUP_A: 'Bar_groupA',
+  GROUP_B: 'Bar_groupB',
 };
 
 const Bar = ({ value, width, height, category: barCategory }) => {
@@ -25,11 +24,11 @@ const Bar = ({ value, width, height, category: barCategory }) => {
     case category.SORTED:
       classNames += ` ${classes.SORTED}`;
       break;
-    case category.COMPARED:
-      classNames += ` ${classes.COMPARED}`;
+    case category.GROUP_A:
+      classNames += ` ${classes.GROUP_A}`;
       break;
-    case category.SWAPPED:
-      classNames += ` ${classes.SWAPPED}`;
+    case category.GROUP_B:
+      classNames += ` ${classes.GROUP_B}`;
       break;
     case classes.DEFAULT:
     default:
