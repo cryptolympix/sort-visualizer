@@ -8,6 +8,7 @@ import selectionSort, {
 } from './selectionSort';
 import mergeSort, { keys as mergeKeys, pseudocode as mergePseudocode } from './mergeSort';
 import heapSort, { keys as heapKeys, pseudocode as heapPseudocode } from './heapSort';
+import quickSort, { keys as quickKeys, pseudocode as quickPseudocode } from './quickSort';
 
 export const ALGORITHMS = [
   {
@@ -29,4 +30,10 @@ export const ALGORITHMS = [
     pseudocode: mergePseudocode,
   },
   { label: 'Heap Sort', function: heapSort, keys: heapKeys, pseudocode: heapPseudocode },
+  {
+    label: 'Quick Sort',
+    function: quickSort,
+    keys: quickKeys,
+    pseudocode: quickPseudocode,
+  },
 ];

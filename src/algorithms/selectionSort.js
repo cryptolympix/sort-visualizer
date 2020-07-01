@@ -33,11 +33,11 @@ for i = 0 to length(A) - 1
   min ← i
   for j = i + 1 to length(A) - 1 do
     if A[j] < A[min] then
-      min = j
+      min ← j
     end if
   end for
   if min != i then
-    swap(A[i], A[min])
+    swap A[i] with A[min]
   end if
 end for
 `;

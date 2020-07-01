@@ -45,7 +45,6 @@ export default (numbers) => {
       heapify(tree, 0, i - 1);
       addToTrace(trace, tree, [], [], getSubTree(tree, 0, i - 1), sorted);
     }
-    return tree;
   };
 
   heapSort(numbers, numbers.length);
@@ -64,12 +63,12 @@ function heapify (tree, node, length) is
   k ← node
   j ← 2 * k + 1
 
-  while j <= length
+  while j ≤ length
     if j < length and tree[j] < tree[j + 1] then
       j ← j + 1
     end if
     if tree[k] < tree[j] then
-      swap(tree[k], tree[j])
+      swap tree[k] with tree[j]
       k ← j
       j ← 2 * k  + 1
     end if
@@ -81,7 +80,7 @@ function heap_sort (tree, length) is
     heapify(tree, i, length)
   end for
   for i = length - 1 to 1 do
-    swap(tree[i], tree[0])
+    swap tree[i] with tree[0]
     heapify(tree, 0, i - 1)
   end for
 end function

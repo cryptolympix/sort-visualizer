@@ -79,14 +79,14 @@ export const keys = {
 
 export const pseudocode = `
 function merge_sort (list) is
-  if length(list) <= 1 then
+  if length(list) ≤ 1 then
     return list
   end if
 
   left ← empty list
   right ← empty list
   for each x with index i in list do
-    if i < length(m)/2 then
+    if i < length(list)/2 then
       add x to left
     else 
       add x to right
@@ -112,13 +112,13 @@ function merge (left, right) is
     end if
 
     while left is not empty do
-        append first(left) to result
-        left ← rest(left)
+      append first(left) to result
+      left ← rest(left)
     end while
 
     while right is not empty do
-        append first(right) to result
-        right ← rest(right)
+      append first(right) to result
+      right ← rest(right)
     end while
 end function
 `;
