@@ -7,6 +7,7 @@ export const category = {
   SORTED: 1,
   GROUP_A: 2,
   GROUP_B: 3,
+  GROUP_C: 4,
 };
 
 const classes = {
@@ -16,6 +17,7 @@ const classes = {
   SORTED: 'Bar_sorted',
   GROUP_A: 'Bar_groupA',
   GROUP_B: 'Bar_groupB',
+  GROUP_C: 'Bar_groupC',
 };
 
 const Bar = ({ value, width, height, category: barCategory }) => {
@@ -29,6 +31,9 @@ const Bar = ({ value, width, height, category: barCategory }) => {
       break;
     case category.GROUP_B:
       classNames += ` ${classes.GROUP_B}`;
+      break;
+    case category.GROUP_C:
+      classNames += ` ${classes.GROUP_C}`;
       break;
     case classes.DEFAULT:
     default:

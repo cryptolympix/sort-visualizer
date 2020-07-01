@@ -1,22 +1,22 @@
 import { swap, addToTrace, createRange } from './helpers';
 
-export default (array) => {
+export default (numbers) => {
   let i = 1;
   let trace = [];
 
   // Core algorithm
-  while (i < array.length) {
+  while (i < numbers.length) {
     let j = i;
-    addToTrace(trace, array, [j, j - 1], [], []);
-    while (j > 0 && array[j - 1] > array[j]) {
-      swap(array, j, j - 1);
-      addToTrace(trace, array, [], [j, j - 1], []);
+    addToTrace(trace, numbers, [j, j - 1], [], [], []);
+    while (j > 0 && numbers[j - 1] > numbers[j]) {
+      swap(numbers, j, j - 1);
+      addToTrace(trace, numbers, [], [j, j - 1], [], []);
       j--;
     }
     i++;
   }
 
-  addToTrace(trace, array, [], [], createRange(0, array.length));
+  addToTrace(trace, numbers, [], [], [], createRange(0, numbers.length));
   return trace;
 };
 

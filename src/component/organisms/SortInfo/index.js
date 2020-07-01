@@ -17,6 +17,7 @@ const SortInfo = ({ keys }) => {
       <Legend label="Sorted" color="var(--bar-sorted-color)" />
       {keys.groupA && <Legend label={keys.groupA} color="var(--bar-group-a-color)" />}
       {keys.groupB && <Legend label={keys.groupB} color="var(--bar-group-b-color)" />}
+      {keys.groupC && <Legend label={keys.groupC} color="var(--bar-group-c-color)" />}
     </div>
   );
 };

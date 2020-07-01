@@ -46,3 +46,8 @@
   background-color: var(--bar-group-b-color);
   margin: 0px 0.7%;
 }
+
+.Bar_groupC {
+  background-color: var(--bar-group-c-color);
+  margin: 0px 0.7%;
+}

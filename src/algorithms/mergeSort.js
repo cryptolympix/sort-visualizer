@@ -25,17 +25,17 @@ export default (numbers) => {
     }
 
     // Recursively sort left sublist.
-    addToTrace(trace, numbers, [], createRange(start, start + mid), []);
+    addToTrace(trace, numbers, [], createRange(start, start + mid), [], []);
     left = mergeSort(left, start, start + mid);
     // Recursively sort right sublist.
-    addToTrace(trace, numbers, [], createRange(start + mid, end), []);
+    addToTrace(trace, numbers, [], createRange(start + mid, end), [], []);
     right = mergeSort(right, start + mid, end);
 
     // Then merge the now-sorted sublists.
     let merged = merge(left, right);
     for (let i = 0; i < merged.length; i++) {
       numbers[start + i] = merged[i];
-      addToTrace(trace, numbers, [start + i], [], []);
+      addToTrace(trace, numbers, [start + i], [], [], []);
     }
     return merged;
   };
@@ -68,7 +68,7 @@ export default (numbers) => {
   };
 
   let sortedList = mergeSort(numbers, 0, numbers.length);
-  addToTrace(trace, sortedList, [], [], createRange(0, numbers.length));
+  addToTrace(trace, sortedList, [], [], [], createRange(0, numbers.length));
   return trace;
 };
 

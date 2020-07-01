@@ -15,6 +15,7 @@ const SortChart = ({ numbers, state }) => {
           if (state.sorted.includes(i)) barCategory = category.SORTED;
           if (state.groupA.includes(i)) barCategory = category.GROUP_A;
           if (state.groupB.includes(i)) barCategory = category.GROUP_B;
+          if (state.groupC.includes(i)) barCategory = category.GROUP_C;
         }
 
         return (
