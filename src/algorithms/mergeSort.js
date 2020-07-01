@@ -102,7 +102,7 @@ end function
 function merge (left, right) is
   result ← empty list
 
-  while left is not empty and right is not empty do
+  while left and right is not empty do
     if first(left) ≤ first(right) then
       append first(left) to result
       left ← rest(left)
