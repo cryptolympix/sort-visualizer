@@ -76,3 +76,49 @@ export const keys = {
   groupA: 'Overwrite',
   groupB: 'Call merge sort',
 };
+
+export const pseudocode = `
+function merge_sort (list) is
+  if length(list) <= 1 then
+    return list
+  end if
+
+  left ← empty list
+  right ← empty list
+  for each x with index i in list do
+    if i < length(m)/2 then
+      add x to left
+    else 
+      add x to right
+    end if
+  end for
+
+  left ← merge_sort(left)
+  right ← merge_sort(right)
+
+  return merge(left, right)
+end function
+
+function merge (left, right) is
+  result ← empty list
+
+  while left is not empty and right is not empty do
+    if first(left) ≤ first(right) then
+      append first(left) to result
+      left ← rest(left)
+    else
+      append first(right) to result
+      right ← rest(right)
+    end if
+
+    while left is not empty do
+        append first(left) to result
+        left ← rest(left)
+    end while
+
+    while right is not empty do
+        append first(right) to result
+        right ← rest(right)
+    end while
+end function
+`;

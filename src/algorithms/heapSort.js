@@ -58,3 +58,31 @@ export const keys = {
   groupB: 'Swapping',
   groupC: 'Heap built',
 };
+
+export const pseudocode = `
+function heapify (tree, node, length) is
+  k ← node
+  j ← 2 * k + 1
+
+  while j <= length
+    if j < length and tree[j] < tree[j + 1] then
+      j ← j + 1
+    end if
+    if tree[k] < tree[j] then
+      swap(tree[k], tree[j])
+      k ← j
+      j ← 2 * k  + 1
+    end if
+  end while
+end function
+
+function heap_sort (tree, length) is
+  for i = length/2 - 1 to 0 do
+    heapify(tree, i, length)
+  end for
+  for i = length - 1 to 1 do
+    swap(tree[i], tree[0])
+    heapify(tree, 0, i - 1)
+  end for
+end function
+`;

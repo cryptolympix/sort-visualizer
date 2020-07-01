@@ -202,7 +202,10 @@ class App extends Component {
             onSkipPrevious={this.skipPrevious}
             onSkipNext={this.skipNext}
           />
-          <SortInfo keys={this.state.algorithm.keys} />
+          <SortInfo
+            keys={this.state.algorithm.keys}
+            pseudocode={this.state.algorithm.pseudocode}
+          />
         </main>
         <footer className="App__Footer">
           <Footer />

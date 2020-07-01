@@ -1,11 +1,32 @@
-import insertionSort, { keys as insertionKeys } from './insertionSort';
-import selectionSort, { keys as selectionKeys } from './selectionSort';
-import mergeSort, { keys as mergeKeys } from './mergeSort';
-import heapSort, { keys as heapKeys } from './heapSort';
+import insertionSort, {
+  keys as insertionKeys,
+  pseudocode as insertionPseudocode,
+} from './insertionSort';
+import selectionSort, {
+  keys as selectionKeys,
+  pseudocode as selectionPseudocode,
+} from './selectionSort';
+import mergeSort, { keys as mergeKeys, pseudocode as mergePseudocode } from './mergeSort';
+import heapSort, { keys as heapKeys, pseudocode as heapPseudocode } from './heapSort';
 
 export const ALGORITHMS = [
-  { label: 'Insertion Sort', function: insertionSort, keys: insertionKeys },
-  { label: 'Selection Sort', function: selectionSort, keys: selectionKeys },
-  { label: 'Merge Sort', function: mergeSort, keys: mergeKeys },
-  { label: 'Heap Sort', function: heapSort, keys: heapKeys },
+  {
+    label: 'Insertion Sort',
+    function: insertionSort,
+    keys: insertionKeys,
+    pseudocode: insertionPseudocode,
+  },
+  {
+    label: 'Selection Sort',
+    function: selectionSort,
+    keys: selectionKeys,
+    pseudocode: selectionPseudocode,
+  },
+  {
+    label: 'Merge Sort',
+    function: mergeSort,
+    keys: mergeKeys,
+    pseudocode: mergePseudocode,
+  },
+  { label: 'Heap Sort', function: heapSort, keys: heapKeys, pseudocode: heapPseudocode },
 ];
