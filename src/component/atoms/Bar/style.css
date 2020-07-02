@@ -27,6 +27,12 @@
   color: var(--text-color-ligth);
 }
 
+@media screen and (max-width: 800px) {
+  .Bar__Value {
+    display: none;
+  }
+}
+
 /* MODIFIERS */
 
 .Bar_default {

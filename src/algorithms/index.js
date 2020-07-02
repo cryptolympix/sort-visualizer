@@ -9,6 +9,11 @@ import selectionSort, {
 import mergeSort, { keys as mergeKeys, pseudocode as mergePseudocode } from './mergeSort';
 import heapSort, { keys as heapKeys, pseudocode as heapPseudocode } from './heapSort';
 import quickSort, { keys as quickKeys, pseudocode as quickPseudocode } from './quickSort';
+import shellSort, { keys as shellKeys, pseudocode as shellPseudocode } from './shellSort';
+import bubbleSort, {
+  keys as bubbleKeys,
+  pseudocode as bubblePseudocode,
+} from './bubbleSort';
 
 export const ALGORITHMS = [
   {
@@ -35,5 +40,17 @@ export const ALGORITHMS = [
     function: quickSort,
     keys: quickKeys,
     pseudocode: quickPseudocode,
+  },
+  {
+    label: 'Shell Sort',
+    function: shellSort,
+    keys: shellKeys,
+    pseudocode: shellPseudocode,
+  },
+  {
+    label: 'Bubble Sort',
+    function: bubbleSort,
+    keys: bubbleKeys,
+    pseudocode: bubblePseudocode,
   },
 ];
