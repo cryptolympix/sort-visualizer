@@ -32,6 +32,7 @@ gaps ← [701, 301, 132, 57, 23, 10, 4, 1]
 
 foreach gap in gaps do
   for i = 0 to length(A) do
+    temp ← A[i]
     j ← i
     while j ≥ gap and A[j-gap] > temp
       A[j] ← A[j-gap]
