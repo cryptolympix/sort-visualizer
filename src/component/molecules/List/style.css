@@ -50,7 +50,7 @@
 
 .List__Content {
   position: absolute;
-  z-index: 10;
+  z-index: 20;
   flex-direction: column;
   justify-content: center;
   align-items: center;

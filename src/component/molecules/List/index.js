@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { MdExpandMore } from 'react-icons/md';
 import './style.css';
+import Backdrop from '../../atoms/Backdrop';
 
 const ListItems = ({ items, onSelect, open }) => {
   let classNames =
@@ -34,6 +35,10 @@ class List extends Component {
     this.props.onSelect(item);
   };
 
+  close = () => {
+    this.setState({ open: false, selected: null });
+  };
+
   render() {
     const { selected, open } = this.state;
     const { items, placeholder, defaultItem } = this.props;
@@ -42,15 +47,18 @@ class List extends Component {
     if (open) iconClasses += ' List__Icon_up';
 
     return (
-      <div className="List">
-        <div className="List__Button" onClick={this.toggleVisible}>
-          <span className="List__Value">{selected || defaultItem || placeholder}</span>
-          <IconContext.Provider value={{ className: iconClasses }}>
-            <MdExpandMore />
-          </IconContext.Provider>
+      <Fragment>
+        <Backdrop show={this.state.open} onClick={this.close} />
+        <div className="List">
+          <div className="List__Button" onClick={this.toggleVisible}>
+            <span className="List__Value">{selected || defaultItem || placeholder}</span>
+            <IconContext.Provider value={{ className: iconClasses }}>
+              <MdExpandMore />
+            </IconContext.Provider>
+          </div>
+          <ListItems items={items} onSelect={this.handleSelect} open={open} />
         </div>
-        <ListItems items={items} onSelect={this.handleSelect} open={open} />
-      </div>
+      </Fragment>
     );
   }
 }
