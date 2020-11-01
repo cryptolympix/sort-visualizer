@@ -4,7 +4,7 @@
 
 React application to visualize the sorting algorithms.
 
-![demo](./demo.jpg)
+![demo](./demo.png)
 
 # Demo
 
